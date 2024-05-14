@@ -1,17 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux'; // data 저장소
+// createStore 보다 발전된 기능
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const plus = document.getElementById('add');
+const minus = document.getElementById('minus');
+const number = document.querySelector('span');
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const ADD = 'ADD';
+const MINUS = 'MINUS';
+
+const countModifier = (count = 0, action) => { //reducer
+  // 데이터를 수정할 수 있는 곳
+  switch (action.type) {
+    case ADD:
+      return count + 1;
+    case MINUS:
+      return count - 1;
+    default:
+      return count;
+  }
+};
+
+const countStore = createStore(countModifier);
+
+const onChange = () => {
+  number.innerText = countStore.getState(); // 값 가져오기
+}
+
+countStore.subscribe(onChange); //변화 감지
+
+plus.addEventListener('click', () => countStore.dispatch({ type: ADD })); //action은 항상 객체여야만 한다.
+minus.addEventListener('click', () => countStore.dispatch({ type: MINUS }));
