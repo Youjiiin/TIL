@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { actionCreaters } from "../Store";
+import { add, remove, actionCreaters } from "../store";
 import ToDo from "../components/ToDo";
 
 // Home 컴포넌트: toDos를 props로 받아서 렌더링
 const Home = ({ toDos, addToDo }) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   // 입력 값 변경 핸들러
   function onChange(e) {
@@ -16,7 +16,7 @@ const Home = ({ toDos, addToDo }) => {
   function onSubmit(e) {
     e.preventDefault();
     console.log(text);
-    setText('');
+    setText("");
     // dispatch(addToDo(text));
     addToDo(text);
   }
@@ -29,8 +29,8 @@ const Home = ({ toDos, addToDo }) => {
         <button>Add</button>
       </form>
       <ul>
-        {toDos.map(toDo => (
-            <ToDo {...toDo} key={toDo.id}/>
+        {toDos.map((toDo) => (
+          <ToDo {...toDo} key={toDo.id} />
         ))}
       </ul>
     </>
@@ -40,15 +40,18 @@ const Home = ({ toDos, addToDo }) => {
 // Redux state를 Home 컴포넌트의 props로 매핑
 // = getState()
 function getCurrentState(state) {
-  return { toDos: state }
+  return { toDos: state };
 }
 
 // = dispatch()
 function mapDispatchToProps(dispatch, ownProps) {
-    return {
-        //함수가 실행되면 dispatch를 호출
-        addToDo: text => dispatch(actionCreaters.addToDo(text))
-    };
+  return {
+    //함수가 실행되면 dispatch를 호출
+    //addToDo: text => dispatch(actionCreaters.addToDo(text))
+
+    //createSlice 사용시
+    addToDo: text => dispatch(add(text))
+  };
 }
 
 // store와 component를 연결하는 방법
