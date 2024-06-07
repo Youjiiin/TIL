@@ -1,8 +1,25 @@
-# React + Vite
+## 상태(State)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 리액트의 상태
+- 컴포넌트 상태
+- 전역 상태
+- 서버 상태
 
-Currently, two official plugins are available:
+### 상태를 위한 행동
+- 상태 변경
+- 상태 최적화
+- 렌더링 최적화
+- 불변성
+- 상태 관리자
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 올바른 초기값 설정
+
+#### 초기값?
+- 가장 먼저 렌더링될 때 순간적으로 보여질 수 있는 값이기도 하다.
+- 초기에 렌더링 되는 값
+
+#### 초기값이 지켜지지 않을 경우
+- 렌더링 이슈 발생, 무한 루프, 타입 불일치로 의도치 않은 동작 => 런타임 에러 (많이 경험중)
+- 초기값이 없다면 => undefined
+- 상태를 CRUD(Create(생성), Read(읽기), Update(갱신), Delete(삭제)) => 상태를 지울때도 초기값을 잘 기억해놔야 원상태로 돌아간다.
+- 빈값 => null처리를 하면 불필요한 방어코드도 줄여준다.
