@@ -30,13 +30,13 @@
 - useState 대신 플래그로 상태를 정의할 수 있다.
 
 ```
-    const isLogin = 
-        hasToken &&
-        hasCookie &&
-        isValidCookie &&
-        isValidToken;
+const isLogin = 
+    hasToken &&
+    hasCookie &&
+    isValidCookie &&
+    isValidToken;
 
-    return <div>{isLogin && '00회원님 반갑습니다!'}<div>
+return <div>{isLogin && '00회원님 반갑습니다!'}<div>
 ```
 
 ### 불필요한 상태 제거하기
@@ -44,7 +44,51 @@
 - props를 useState에 넣지 않고 return문에 사용하기
 - 컴포넌트 내부 변수는 렌더링마다 고유한 값을 가짐
 - 따라서 useState가 아닌 const로 상태를 선언하는게 좋은 경우도 있음
-
+ 
 ### useState대신 useRef
 - useRef는 가변 컨테이너이다.
 - 한 번 고정된 값을 컴포넌트에서 계속해서 사용하는 값은 useState를 사용하지 않아도 된다. => 컴포넌트의 전체적인 수명과 동일하게 지속된 정보를 일관적으로 제공해야하는 경우
+
+### 연관된 상태 단순화하기
+- 복잡한 것 -> 단순하게 하는 패턴 : KISS
+- useState를 많이 사용하게 되면 side effect가 많이 일어난다.
+- 상태를 많이 만들어서 관리하기 보단 연관된 것들끼리 문자열로 혹은 객체로 묶어서 관리해주기 
+
+### 연관된 상태 객체로 묶어내기
+```
+const [isLoading, setIsLoading] = useState(false);
+const [isSuccess, setIsSuccess] = useState(false);
+
+const [fetchState, setFetchState] = useState({
+    isLoading: false,
+    isSuccess: false
+});
+
+setFetchState((prevState) => {
+    ...prevState, // 이전상태 가져오기
+    isSuccess : true // 새로운 상태 변화
+})
+```
+
+### useReducer 사용하기
+- 구조화된 상태를 원한다면 useReducer
+```
+const ACTION_TYPE = {
+    FETCH_LOADING: FETCH_LOADING,
+    ...
+}
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'FETCH_LOADING':
+            return { ...state, isLoading: true }
+        default:
+            return INIT_STATE;
+    }
+}
+
+const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
+dispatch({ type: ACTION_TYPE.FETCH_LOADING })
+```
+
