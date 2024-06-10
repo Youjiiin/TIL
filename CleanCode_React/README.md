@@ -92,3 +92,48 @@ const [state, dispatch] = useReducer(reducer, INIT_STATE);
 dispatch({ type: ACTION_TYPE.FETCH_LOADING })
 ```
 
+### Custom Hooks 사용하기
+- Custom Hooks를 사용하면 코드를 확장성 있고 재사용 가능하게 작성할 수 있다.
+```
+const useFetchData = (url) => {
+    const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
+    useEffect(() => {
+        const fetchData = async() => {
+            //fetch Data 시도
+            dispatch({ type: ACTION_TYPE.FETCH_LOADING });
+
+            await fetch(url)
+                .then(() => {
+                    dispatch({ type: ACTION_TYPE.FETCH_SUCCESS });
+                })
+                .catch(() => {
+                    dispatch({ type: ACTION_TYPE.FETCH_FIAL });
+                })
+        };
+    }, [url])
+
+    return state
+}
+
+const {isLoading, isFail, isSuccess} = useFetchData('url');
+```
+
+### 이전 상태 활용하기
+- updater function을 사용해 prev state를 고려하면 예상치 못한 결과를 예방할 수 있다.
+- setState만 사용하면 업데이트된 값보다, 원래 상태만을 가져와 사용하기에 에러가 발생
+```
+const [age, setAge] = useState(42);
+
+function updateState() {
+    setAge(age + 1); // 42 + 1
+    setAge(age + 1); // 42 + 1
+    setAge(age + 1); // 42 + 1
+}
+
+function updaterFunction() {
+    setAge((prevAge) => prevAge + 1); // 42 -> 43
+    setAge((prevAge) => prevAge + 1); // 43 -> 44
+    setAge((prevAge) => prevAge + 1); // 44 -> 45
+}
+```
