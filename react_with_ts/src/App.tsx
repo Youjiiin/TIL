@@ -6,11 +6,16 @@ import Label from './components/Label';
 import { useSetLocale, useTranslate } from './translate';
 
 function App() {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<{
+    username: string;
+    password: string;
+  }>({
     username: '',
     password: '',
   });
-  const formRef = useRef();
+  // useState: 배열의 경우에는 초깃값이 비어있는데, 타입추론이 never[]로 되이게 제네릭으로 타입을 설정해주어야 한다.
+  const formRef = useRef<HTMLFormElement>(null);
+  // useRef: 제네릭으로 대상이 되는 노드의 타입을 정해줄 수 있다. 초깃값은 null 로 지정
   const t = useTranslate();
   const setLocale = useSetLocale();
 
@@ -36,7 +41,7 @@ function App() {
   }
 
   return (
-    <form className="login" ref={formRef as any}>
+    <form className="login" ref={formRef}>
       <h1 className="login-title">{t('signin')}</h1>
       <Label>{t('username')}</Label>
       <Input
