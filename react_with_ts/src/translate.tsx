@@ -1,18 +1,27 @@
-import { createContext, useContext, useState } from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 
-const LocaleContext = createContext({
+type Locale = 'ko' | 'en';
+
+interface LocaleContextValue {
+  locale: Locale;
+  setLocale: (vlaue: Locale) => void;
+}
+
+const LocaleContext = createContext<LocaleContextValue>({
   locale: 'ko',
   setLocale: () => {},
 } as any);
 
-export function LocaleContextProvider({ children }: any) {
-  const [locale, setLocale] = useState('ko');
+export function LocaleContextProvider({ children }: {
+  children: ReactNode;
+}) {
+  const [locale, setLocale] = useState<Locale>('ko');
 
   return (
     <LocaleContext.Provider
       value={{
         locale,
-        setLocale: setLocale as any,
+        setLocale,
       }}
     >
       {children}
@@ -51,9 +60,8 @@ export function useSetLocale() {
   return setLocale;
 }
 
-export function useTranslate(): (key: string) => string {
+export function useTranslate() {
   const locale = useLocale();
-  // @ts-ignore
-  const t = (key) => dict[locale][key];
+  const t = (key: keyof typeof dict[Locale]) => dict[locale][key];
   return t;
 }
