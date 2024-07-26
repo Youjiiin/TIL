@@ -10,7 +10,7 @@ interface LocaleContextValue {
 const LocaleContext = createContext<LocaleContextValue>({
   locale: 'ko',
   setLocale: () => {},
-} as any);
+});
 
 export function LocaleContextProvider({ children }: {
   children: ReactNode;

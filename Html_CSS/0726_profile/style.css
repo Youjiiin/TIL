@@ -1,0 +1,89 @@
+/* 초기화 */
+body, ul {
+    margin: initial;
+    padding: initial;
+}
+
+h1, h2 {
+    margin: initial;
+    font-size: inherit;
+    font-weight: inherit;
+}
+li {
+    list-style-type: none;
+}
+
+/* 스타일 */
+body {
+    background-image: url('./images/KakaoTalk_20220916_150629829_03.jpg');
+}
+
+.container {
+    background-color: #DDD;
+    width: 800px;
+    text-align: center;
+    margin: 40px auto;
+    border-radius: 5px;
+}
+
+.header {
+    padding: 40px 0;
+    background-image: url('./images/background.gif');
+    color: #FFFFFF;
+    
+}
+.header img {
+    width: 140px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+}
+.header h1 {
+    font-size: 70px;
+    font-weight: bold;
+}
+.header p {
+    border-top: 4px solid;
+    width: fit-content;
+    margin: 4px auto;
+    padding: 5px 10px;
+}
+
+.section {
+    background-color: #FFFFFF;
+    margin: 20px;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    text-align: left;
+}
+.information {
+    background-image: url('./images/icon-information.png');
+}
+.skills {
+    background-image: url('./images/icon-skills.png');
+}
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: green;
+}
+.section li {
+    border-left: 3px solid #ddd;
+    padding: 3px 10px;
+    color: #999;
+    font-weight: bold;
+    transition: all 0.4s;
+}
+.section li:hover {
+    cursor: default;
+    color: green;
+    border-color: green;
+}
+
+.footer{
+    background-color: #f4f4f4;
+    padding: 12px 0;
+    text-align: center;
+    color: #999;
+}
