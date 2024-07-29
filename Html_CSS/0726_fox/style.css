@@ -1,0 +1,39 @@
+/* 초기화 */
+body, h1, p {
+    margin: initial;
+    padding: initial;
+}
+
+/* 스타일 */
+body {
+    background-image: url('./images/bg.png');
+    font-family: Arial;
+}
+
+.animal, .green {
+    text-align: center;
+    vertical-align: bottom;
+}
+.animal img {
+    margin-top: 60px;
+}
+.animal img, .green img {
+    vertical-align: bottom;
+}
+
+.content {
+    width: 260px;
+    background-color: #9C6035;
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 0 0 30px 30px;
+    border-bottom: 10px solid #46260E;
+}
+.content h1 {
+    color: #FFFFFF;
+    font-size: 36px;
+}
+.content p {
+    margin: 10px 0 38px 0;
+    color: #E8BC9C;
+}

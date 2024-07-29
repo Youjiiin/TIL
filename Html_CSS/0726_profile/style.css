@@ -2,6 +2,7 @@
 body, ul {
     margin: initial;
     padding: initial;
+    font-family: Arial;
 }
 
 h1, h2 {
@@ -55,12 +56,13 @@ body {
     background-repeat: no-repeat;
     background-position: right 20px center;
     text-align: left;
+    background-size: 100px;
 }
 .information {
-    background-image: url('./images/icon-information.png');
+    background-image: url('./images/icons8-사람-남자-64.png');
 }
 .skills {
-    background-image: url('./images/icon-skills.png');
+    background-image: url('./images/icons8-유지-64.png');
 }
 .section h2 {
     margin-bottom: 20px;
