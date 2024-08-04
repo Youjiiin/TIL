@@ -1,0 +1,82 @@
+/* 초기화 */
+body, h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: initial;
+}
+
+/* 스타일 */
+body {
+    background-image: url('./images/header-bg.png');
+    font-family: Arial;
+}
+
+main {
+    width: fit-content;
+    border: 30px solid #FFA500;
+    border-bottom: 0;
+    margin: 100px auto -200px auto;
+    padding: 90px;
+    padding-bottom: 0;
+    line-height: 300px;
+
+    /* 이거 배웠을까요..? */
+    position: relative;
+    z-index: 1;
+}
+.instruction {
+    color: #FFA500;
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 1.6;
+}
+.instruction h1 {
+    font-size: 32px;
+    border-bottom: 4px solid #FFA500;
+    width: fit-content;
+}
+
+section {
+    width: 100%;
+    background-color: #DDDDDD;
+    padding: 30px;
+
+    /* 이거 배웠을까요..? */
+    position: relative;
+    z-index: 2;
+}
+.type_container{
+    width: fit-content;
+    margin: auto;
+}
+.type {
+    display: inline-block;
+    margin: 30px;
+}
+.type img {
+    vertical-align: middle;
+    border-radius: 6px 6px 0 0;
+}
+.text {
+    background-color: #FFFFFF;
+    border-top: 4px solid #FFA500;
+    color: #FFA500;
+    border-radius: 0 0 6px 6px;
+    padding: 0 10px;
+    text-align: center;
+}
+.text span {
+    line-height: inherit;
+    margin-right: 127px;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #FFFFFF;
+    border-top: 1px solid #AAAAAA;
+    color: #AAAAAA;
+    text-align: center;
+    letter-spacing :5px;
+    line-height: 53px;
+}
