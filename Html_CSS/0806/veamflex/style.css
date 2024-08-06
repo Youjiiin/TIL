@@ -1,0 +1,125 @@
+/* Reset */
+body, p, h2{
+  margin: unset;
+  padding: unset;
+}
+
+img {
+  vertical-align: top;
+}
+
+/* Layouts */
+.l_wrapper {
+  width: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Typography */
+:root {
+  font-family: arial;
+}
+
+/* Components */
+body {
+  color: #999;
+  background-color: #111;
+}
+
+.contents {
+  background-color: #000;
+}
+
+/* header 부분 */
+.header{
+  background-color: #111111;
+}
+.header-container {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+  width: 200px;
+}
+.description{
+  display: flex;
+  align-items: center;
+}
+.description::before {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  width: 64px;
+  background-color: currentColor;
+  margin: 0 20px 0 30px;
+}
+.anger{
+  width: 140px;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+/* main 부분 */
+.contents {
+  padding: 24px 0;
+}
+.main-container{
+  display: flex;
+  gap: 24px;
+}
+.movie_list{
+  background-color: #111111;
+  border-radius: 12px;
+  flex-grow: 1;
+  min-height: 848px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.movie {
+  background-color: #222222;
+  border-radius: 16px;
+  overflow: hidden;
+
+  flex-basis: 320px;
+}
+.movie img {
+  width: 100%;
+}
+.movie h2 {
+  font-weight: bold;
+  color: #EBB3BB;
+  margin: 20px;
+}
+.movie p {
+  font-size: 12px;
+  margin: 12px 20px;
+}
+.button{
+  width: 300px;
+  line-height: 48px;
+  letter-spacing: 0.2em;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #111111;
+  color: #FF0000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.sidebar{
+  background-color: #111111;
+  flex-basis: 168px;
+  height: 340px;
+  border-radius: 12px;
+}
+
+/* footer 부분 */
+.footer {
+  background-color: #111111;
+  padding-top: 30px;
+}

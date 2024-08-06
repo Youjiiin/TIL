@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flexing</title>
+    <style>
+      body {
+        background-color: rgb(225, 135, 135);
+      }
+      .playground {
+        border: 10px solid rgb(220, 83, 83);
+        width: 980px;
+        margin: 200px auto;
+        border-radius: 20px;
+        background-color: rgb(173, 220, 238);
+        padding: 20px;
+
+        display: flex;
+        align-items: center;
+      }
+      .frog {
+        border: 6px solid green;
+        border-radius: 10px;
+        background-color: mediumseagreen;
+        color: lime;
+        font-size: 40px;
+
+        flex-basis: 220px;
+        flex-shrink: 1;
+      }
+      .frog img {
+        width: 150px;
+      }
+      .son {
+        background-color: yellow;
+        flex-shrink: 0;
+      }
+      .hater {
+        background-color: tomato;
+        flex-shrink: 1000000;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="playground">
+      <div class="frog hater"><img src="./images/peer.png"/></div>
+      <div class="frog"><img src="./images/peer.png"/></div>
+      <div class="frog"><img src="./images/peer.png"/></div>
+      <div class="frog"><img src="./images/peer.png"/></div>
+      <div class="frog son"><img src="./images/peer.png"/></div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,76 @@
+/* Reset */
+ul {
+  margin: unset;
+  padding: unset;
+}
+
+h2 {
+  margin: unset;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Components */
+body {
+  background-color: #222;
+}
+
+.section {
+  max-width: 800px;
+  margin: 60px auto;
+  border: 8px solid dodgerblue;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.section h2 {
+  color: dodgerblue;
+  margin-bottom: 20px;
+}
+
+/* 공통 컴포넌트 */
+.component {
+  text-align: center;
+  line-height: 180px;
+  height: 180px;
+  background-color: #ddd;
+  border-radius: 12px;
+  font-size: 32px;
+}
+
+/* inline-block 버전 */
+.inline-block .l_row {
+  font-size: 0;
+  margin: 0 -10px -20px -10px;
+}
+
+.inline-block .l_col {
+  display: inline-block;
+  width: 33.333333%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+/* flex 버전 */
+.flex .l_row {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  margin: 0 -10px;
+}
+
+.flex .l_col {
+  width: 33.333333%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* grid 버전 */
+.grid .l_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
