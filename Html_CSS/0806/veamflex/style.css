@@ -1,11 +1,26 @@
 /* Reset */
-body, p, h2{
+body, p, ul{
   margin: unset;
   padding: unset;
 }
 
+h1, h2, h3 {
+  margin: unset;
+  font-size: unset;
+  font-weight: unset;
+}
+
+a{
+  color: unset;
+  text-decoration: unset;
+}
+
 img {
   vertical-align: top;
+}
+
+li {
+  list-style: none;
 }
 
 /* Layouts */
@@ -69,22 +84,21 @@ body {
 .main-container{
   display: flex;
   gap: 24px;
+  align-items: normal;
 }
 .movie_list{
-  background-color: #111111;
-  border-radius: 12px;
-  flex-grow: 1;
-  min-height: 848px;
   display: flex;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 24px;
+  flex-grow: 1;
+  width: 0;
+  flex-shrink: 0;
 }
 .movie {
   background-color: #222222;
   border-radius: 16px;
   overflow: hidden;
-
-  flex-basis: 320px;
+  width: 320px;
 }
 .movie img {
   width: 100%;
@@ -97,12 +111,14 @@ body {
 .movie p {
   font-size: 12px;
   margin: 12px 20px;
+  flex-grow: 1;
 }
 .button{
   width: 300px;
   line-height: 48px;
   letter-spacing: 0.2em;
-  margin: 30px auto 0 auto;
+  margin: 20px auto;
+  margin-top: auto;
   text-align: center;
   border-radius: 10px;
   background-color: #111111;
@@ -111,11 +127,46 @@ body {
   font-weight: bold;
 }
 
+
 .sidebar{
   background-color: #111111;
-  flex-basis: 168px;
-  height: 340px;
+  width: 168px;
+  height: 310px;
   border-radius: 12px;
+}
+.category h2{
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.category h2::before{
+  content: ' ';
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  flex-shrink: 0;
+  background-image: url(./images/icon.png);
+}
+.category-item{ 
+  /* 직계 자손만 적용 '>' */
+  border-top: 1px solid #FA8073;
+}
+.category-item h3 {
+  color: #FA8073;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+.category-sub {
+  font-size: 12px;
+  margin-left: 20px;
+  padding: 10px 0;
+}
+.category-sub li {
+  padding: 6px 0;
+}
+.category-sub li + li {
+  border-top: 1px solid #333333;
 }
 
 /* footer 부분 */
