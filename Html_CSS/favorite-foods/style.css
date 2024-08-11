@@ -1,4 +1,165 @@
-/*
- * 한글 폰트 설정
+/* Reset */
+body, p, ul {
+  margin: unset;
+  padding: unset;
+}
+h1 {
+  font-size: unset;
+  font-weight: unset;
+  margin: unset;
+}
+
+li {
+  list-style: none;
+}
+
+/* Layouts */
+.l_wrapper {
+  max-width: 1200px;
+  width: auto;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Typography */
+:root {
   font-family: "Noto Sans KR", sans-serif;
-*/
+}
+
+/* Components */
+body {
+  background-color: #D9D9D9;
+}
+/* header */
+header {
+  background-color: #F4F4F4;
+}
+
+.header-container {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-container h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FF6600;
+}
+.header-container img{
+  width: 124px;
+}
+
+/* main */
+.main-container {}
+.l_row {
+  display: flex;
+  align-items: stretch;
+  gap: 30px; 
+  padding: 30px 0;
+}
+.l_col {
+  width: calc(100% / 3);
+  /* max-height: 434px; */
+  box-sizing: border-box;
+} 
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.card-cover {
+  position: relative;
+}
+.card-cover img {
+  width: 100%;
+  vertical-align: bottom;
+}
+.card-cover p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  border-radius: 0 12px 0 0;
+  font-weight: bold;
+}
+
+.description {
+  padding: 20px;
+  color: #666666;
+  font-size: 14px;
+  background-color: #FFF;
+}
+.description span {
+  font-weight: bold;
+}
+
+.tag-container {
+  background-color: #F4F4F4;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 26px 18px;
+  flex-wrap: wrap;
+}
+.tag {
+  border-radius: 48px;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 22px;
+  padding: 0 8px;
+}
+.tag span {
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hotdog_text {
+  color: #FF6600;
+}
+.hotdog_back {
+  background-color: #FF6600;
+}
+.burger_text {
+  color: #17A651;
+}
+.burger_back {
+  background-color: #17A651;
+}
+.pizza_text {
+  color: #0075FF;
+}
+.pizza_back {
+  background-color: #0075FF;
+}
+
+/* footer */
+.footer-text{
+  font-size: 12px;
+  letter-spacing: 24%;
+  color: #AAA;
+}
+
+@media (max-width: 600px) {
+  .l_wrapper {
+    width: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .header-container {
+    height: 360px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin-top: auto;
+  }
+  .l_row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .l_col{
+    width: 300px;
+    padding: 0;
+  }
+}
