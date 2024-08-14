@@ -1,0 +1,154 @@
+/* Resets */
+body, h1, h2, p {
+  margin: unset;
+}
+
+ol {
+  margin: unset;
+  padding: unset;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+/* Layouts */
+.l_wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Typography */
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+}
+
+/* Commons */
+.button {
+  display: inline-block;
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: rgb(16, 128, 240);
+}
+
+/* Components */
+body {
+  background-color: rgb( 0 106 255 );
+}
+
+.container {
+  background-color: rgb( 255 255 255 / 0.1 );
+}
+
+.timeline {
+  margin: 0 -20px;
+  padding-bottom: 40px;
+
+  /* 새로운 컨테이닝 블록 -> ::before의 기준점이 됨 */
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  background-color: aqua;
+  position: absolute;
+  inset: 0; /* 가용 공간 최대치 */
+  width: 6px;
+  margin: 40px auto -40px; /* 유연한 inset을 통해 상하단 마진을 고려한 높이 생성! */
+  border-radius: 12px;
+}
+
+.title {
+  text-align: center;
+  font-weight: 800;
+  color: white;
+  font-size: 3rem;
+  line-height: 1;
+  padding: 70px 0;
+}
+
+.timeline-item {
+  width: 50%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: -80px;
+}
+
+.timeline-item.left {
+  text-align: right;
+}
+
+.timeline-item.right {
+  text-align: left;
+  margin-left: auto;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.year h2 {
+  color: rgb( 27 138 222 );
+  font-size: 2.4rem; /* :root font-size의 2.3배 */
+  margin-bottom: 10px;
+  position: relative; /* ::after 요소의 기준점 (컨테이닝 블록) */
+}
+
+.year h2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 0;
+  margin: auto -50px;
+
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent white;
+}
+
+.timeline-item.left  .year h2::after  { right: 0; }
+.timeline-item.right .year h2::after  { left: 0; border-color: transparent white transparent transparent; }
+
+.year p {
+  color: #888;
+  font-size: 0.8rem;
+  line-height: 1.5em;
+  margin-bottom: 30px;
+}
+
+.year {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 255, .3);
+  position: relative;
+}
+
+.year-icon {
+  position: absolute;
+  top: 0;
+  margin: -50px 20px;
+}
+
+.timeline-item.left  .year-icon  { left: 0; }
+.timeline-item.right .year-icon  { right: 0; }
+
+
+@media ( max-width: 960px ) {
+  .timeline-item.timeline-item.timeline-item { /* 셀렉터 특정성 점수 (Selector Specificity)를 의도적으로 높임. */
+    width: unset;
+    text-align: unset;
+    margin: 0 0 20px 0;
+  }
+}
