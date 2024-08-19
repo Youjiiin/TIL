@@ -1,0 +1,246 @@
+/* Reset */
+body {
+    margin: unset;
+}
+
+h1 {
+    margin: unset;
+    font-size: unset;
+    font-weight: unset;
+}
+
+strong {
+    font-weight: unset;
+}
+
+p {
+    margin: unset;
+}
+
+img {
+    /* img 하단의 아랫쪽 공간 없애기 위함 */
+    vertical-align: top;
+
+    /* img가 최대로 커질 수 있는 너비를 제한한당.
+    어떻게? 컨테이닝 블록의 너비로~ 말이얌 */
+    max-width: 100%;
+}
+
+/* CSS Variables */
+:root {
+    /* Color */
+    /* CSS Variable을 활용하여 색상 정보 체계적 관리 */
+
+    --color-red: #FF2E00;
+
+    --color-white: #fff;
+    --color-gray-50: #999;
+    --color-gray-80: #222;
+    --color-gray-90: rgb( var(--color-gray-90-rgb) / 1 ); 
+
+    /* rgb 별도 작성 */
+    --color-gray-90-rgb: 17 17 17; /* #111 */
+
+    --color-black: #000;
+
+    /* Fonts */
+    --font-en: 'arial';
+    --font-ko: 'arial';
+}
+
+/* Typography */
+:root {
+    /* 시스템 폰트인 arial 셋팅 */
+    font-family: var(--font-en);
+
+    /* 한글의 어절이 유지되게 함 */
+    word-break: keep-all;
+
+    /* 한글의 한 어절이 너무나 커서, 컨테이너를 넘어가면, break-word한당 */
+    overflow-wrap: break-word;
+}
+
+/* Component */
+body {
+    background-color: var(--color-gray-80);
+}
+
+.wrapper {
+    margin: 60px auto;
+
+    /* .wrapper에 좌우 패딩을 기본적으로 제공 / 뷰포트 사이즈가 작아져도 좌우로 기본적인 여유를 부여함 */
+    padding: 0 30px;
+
+    /* 컨테이닝 블록 기준으로 가득 차려고 시도 */
+    width: auto;
+
+    /* 가득 차는 상황에서 최대치로 커질 수 있는 너비를 제한 */
+    max-width: 1200px;
+}
+
+.article {
+    background-color: var(--color-gray-90);
+    color: var(--color-gray-50);
+
+    /* article을, 새로운 스태킹 컨텍스트로 만든당 */
+    z-index: 0;
+
+    /* z-index는 단독으로 동작되지 아니한다! position: static이 아닌 값이 들어가야 함. (flexitems는 z-index 단독 동작 가능 */
+    position: relative;
+}
+
+.article-cover {
+    box-shadow: inset 0 0 20px red;
+
+    /* 비율을 유지하는 블록 레벨 요소를 만든당 */
+    aspect-ratio: 16 / 9;
+
+    /* min-height가 내부 콘텐츠 높이만큼 강제 (auto가 그렇게 계산된당) */
+    /*
+        min-height: 0; 
+        auto가 아닌 값으로 만들어줘서 내부 콘텐츠 높이와 관계없이 aspect-ratio가 유지되게 함 
+    */
+
+    /* min-height 컨트롤하는 것 말고, overflow속성을 이용함으로서도 자식요소가 부모요소의 높이에 영향을 끼치는 것을 막을수 있다. */
+    overflow: hidden;
+
+    /* 하위 ::after요소의 컨테이닝 블록이 될 수 있게! position: static이 아닌 값으로 설정함! */
+    position: relative;
+
+    /* 스태킹 컨텍스트인 상위 요소 .article 기준으로 -1 */
+    z-index: -1;
+
+    /* article-cover를 좀 더 빨리 끝나게 만들어, 뒤따라오는 article-main이 cover를 덮을수 있도록 네거티브 마진 적용 */
+    /* 차후에 이 article-cover 마크업이 없어지더라도 아랫쪽 article-main은 정상적으로 콘텐츠 전달이 될 수 있도록 */
+    margin-bottom: -6%; /* margin-bottom을 컨테이닝 블록 너비 기준으로 설정하여 안정성을 높임 */
+}
+
+.article-cover-src {
+    /* 그 어떤 이미지가 들어가더라도, 안정적으로 16 / 9 비율로 강제되도록 하기 위함 */
+    /* 물론 강제한 비율이, 원본 이미지의 비율과 다르므로 찌그러진당 */
+    width: 100%;
+    height: 100%;
+
+    /* 
+        object-fit: cover => background-size: cover 마냥 동작 
+        object-fit: cover;
+    */
+
+    /* 
+        object-fit: contain => background-size: contain 마냥 동작 
+    */
+    /* 컨테이너 기준으로 해당 이미지를 무조건 포함하게끔 연출, 비율은 유지! 사이즈는 조정 */
+    object-fit: contain;    
+}
+
+/* .article-cover의 그라디언트를 깔아 주기 위한 가상 요소: 1단계 */
+.article-cover::after {
+    content: " "; /* 가상 요소는 해당 content속성이 필수당. 지우면 아니된당 */
+
+    /* 상위 요소의 컨테이닝 블록(.article-cover)을 기준으로 절대 위치 배치됨 */
+    position: absolute;
+
+    /* 컨테이닝 블록의 너비만큼 가용공간을 최대치로 늘림 -> 너비가 유연하게 꽉참 */ 
+    left: 0;
+    right: 0;
+
+    /* 아랫쪽 기준으로 배치 */
+    bottom: 0;
+
+    /* 컨테이닝 블록의 높이 기준 퍼센테이지! */
+    height: 40%;
+
+    /* 실제 그라디언트 코드 */
+    background-image: linear-gradient( to bottom, rgb( var(--color-gray-90-rgb) / 0 ) 0%, rgb( var(--color-gray-90-rgb) / 1 ) 100% );
+
+    /*
+    예전 rgba() 문법의 소개와 CSS Variables와 최고의 궁합인 rgb() 문법을 소개 
+    :root {
+        --color-gray-90: 17 17 17;
+    }
+    .wow {
+        background-color: rgba( 17, 17, 17, 0.5 );
+        background-color: rgb( 17 17 17 / 0.5 );
+
+        최종 코드 
+        background-color: rgb( var(--color-gray-90) / 0.5 );
+    }
+    */
+}
+
+.article-main {
+
+    /* 피그마상의 padding을 우선 적용 */
+    padding: 0 100px 60px 60px;
+
+    /* flex container가 되게 함 */
+    display: flex;
+
+    /* gap: 100p;x => row-gap, column-gap을 한꺼번에 100px로 */
+    column-gap: 100px;
+    row-gap: 48px;
+
+    flex-wrap: wrap; /* 초기값은 nowrap */
+}
+
+.article-contents {
+
+    /* 가용 공간 몽땅! 자신의 너비로 가져감 */
+    flex-grow: 1;  /* 초기값 0 */
+
+    /* flex-basis: 0 => 내부 텍스트 너비는 버림 -> grow로만 너비 책정 가능허게 함! */
+
+    /* flex-basis: 300px 해당 값 기준으로 flex-wrap이 동작되게! */
+    flex-basis: 300px;
+
+    /*
+    min-width: auto; -> 0;
+    내부 콘텐츠 너비에 의해 해당 요소 (부모)의 너비가 결정되지 않게 만들기 위해 0으로 재설정 
+    */
+    min-width: 0;
+}
+
+.article-title {
+    color: var(--color-white);
+    font-size: 64px;
+    font-weight: bold;
+    margin-bottom: 26px;
+}
+
+.article-title-badge {
+    background-color: var(--color-red);
+    display: block;
+    width: fit-content;
+    font-size: 12px;
+    padding: 0 12px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 8px;
+    letter-spacing: 0.18em;
+}
+
+/* 인접 형제 콤비네이터(+)를 사용하지 않은 이유 고민 필요 */
+.article-description p {
+    /* 한줄 높이 만큼 margin-bottom 설정 */
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+}
+
+.article-description p:last-child {
+    /* p요소의 마지막은 항상 margin-bottom: 0 */
+    margin-bottom: 0;
+}
+
+.article-sidebar {
+    width: 240px;
+    /* 
+        flex-basis: auto;
+        min-width: auto;
+        auto값을 width값과 동기화
+
+        min-width: auto는 width값이 flex-shrink: 1에 의해 수축 될 때 같이 동기화 되어 조절됨.
+
+        width: 240px에서 수축되어 220px로 되었다고 한다면,
+        그당시 min-width: auto는 220px로 재계산 됨.
+    */ 
+}
