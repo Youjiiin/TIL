@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>CINEMA</title>
   </head>
@@ -11,7 +14,16 @@
       <!-- 콘텐츠 내용에 종속적인 클래스 작명은 지양 / 일반적인 이름 권장 && 유니크하게 -->
       <article class="article">
         <div class="article-cover">
-          <img class="article-cover-src" src="images/cover.png">
+
+          <video 
+            class="article-cover-src"
+            src="images/cover.mp4"
+            autoplay
+            muted
+            loop
+          >
+          </video>
+
         </div>
         <div class="article-main">
 
@@ -38,7 +50,35 @@
 
           <aside class="article-sidebar">
 
-            Sidebar
+            <section class="section">
+              <h2 class="section-title">Genre</h2>
+              <div class="section-contents">
+                Section Contents
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">Ratings</h2>
+              <div class="section-contents">
+                <div class="ratings" data-score="3">
+                  5점 만점에 3점
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">Casts</h2>
+              <div class="section-contents">
+
+                <div class="avatars">
+                  <img class="avatars-icon" src="images/member01.png" title="밥파" alt="밥파">
+                  <img class="avatars-icon" src="images/member02.png" title="대쉬파" alt="대쉬파">
+                  <img class="avatars-icon" src="images/member03.png" title="헬렌파" alt="헬렌파">
+                  <img class="avatars-icon" src="images/member04.png" title="바이올렌파" alt="바이올렌파">
+                </div>
+
+              </div>
+            </section>
 
           </aside>
         </div>
