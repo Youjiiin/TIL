@@ -1,0 +1,185 @@
+/* Reset */
+body {
+  margin: unset;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+h1 {
+  font-size: unset;
+  font-weight: unset;
+  margin: unset;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  } 
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Typography */
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-size: 62.5%;
+  line-height: 1.6;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+/* Components */
+.container {
+  height: 100vh;
+  display: flex;
+
+  /* 밖에 나가는 요소들 관계없이 스크롤바 제한 검 */
+  overflow: hidden;
+}
+
+.circle {
+  margin: auto;
+  width: 300px;
+  aspect-ratio: 1/1;
+  color: rebeccapurple;
+  position: relative;
+}
+
+.circle-title {
+  font-size: 3.2rem;
+  font-weight: 600;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel {
+  position: absolute;
+  inset: 0;
+  --distance: -400px;
+  border-radius: 50%;
+
+  animation-name: spin;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+
+  /* 등속도로 만듦 */
+  animation-timing-function: linear;
+}
+
+.wheel-item img {
+  animation-name: spin;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+
+  animation-direction: reverse;
+
+  /* 등속도로 만듦 */
+  animation-timing-function: linear;
+
+}
+
+.wheel:hover {
+  --distance: -200px;
+}
+
+.wheel-item {
+
+  width: 60px;
+  height: 60px;
+
+  /* 마우스 액션에서 제외 */
+  pointer-events: none;
+
+  /* 모든 wheel-item이 몽땅 가운데로 옮겨지게! */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -30px;
+  margin-top: -30px;
+
+  transition: transform .4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 모든 wheel-item은 화면중간에서 시작!, rotate로 진행 방향을 틀어서 -200px만큼 이동! */
+.wheel-item:nth-child(1) { 
+  transform: 
+    rotate(315deg) 
+    translateY( var(--distance) ) 
+    rotate(-315deg); 
+}
+.wheel-item:nth-child(2) { 
+  transform: 
+    rotate(270deg) 
+    translateY( var(--distance) ) 
+    rotate(-270deg); 
+}
+.wheel-item:nth-child(3) { 
+  transform: 
+    rotate(225deg) 
+    translateY( var(--distance) ) 
+    rotate(-225deg); 
+}
+.wheel-item:nth-child(4) { 
+  transform: 
+    rotate(180deg) 
+    translateY( var(--distance) ) 
+    rotate(-180deg); 
+}
+.wheel-item:nth-child(5) { 
+  transform: 
+    rotate(135deg) 
+    translateY( var(--distance) ) 
+    rotate(-135deg); 
+}
+.wheel-item:nth-child(6) { 
+  transform: 
+    rotate(90deg)  
+    translateY( var(--distance) ) 
+    rotate(-90deg); 
+}
+.wheel-item:nth-child(7) { 
+  transform: 
+    rotate(45deg)  
+    translateY( var(--distance) ) 
+    rotate(-45deg); 
+}
+.wheel-item:nth-child(8) { 
+  transform: 
+    rotate(0deg)   
+    translateY( var(--distance) ) 
+    rotate(0deg); 
+}
+
+.wheel:hover .wheel-item:nth-child(1) {
+  transition-delay: .1s;
+}
+.wheel:hover .wheel-item:nth-child(2) {
+  transition-delay: .2s;
+}
+.wheel:hover .wheel-item:nth-child(3) {
+  transition-delay: .3s;
+}
+.wheel:hover .wheel-item:nth-child(4) {
+  transition-delay: .4s;
+}
+.wheel:hover .wheel-item:nth-child(5) {
+  transition-delay: .5s;
+}
+.wheel:hover .wheel-item:nth-child(6) {
+  transition-delay: .6s;
+}
+.wheel:hover .wheel-item:nth-child(7) {
+  transition-delay: .7s;
+}
+.wheel:hover .wheel-item:nth-child(8) {
+  transition-delay: .8s;
+}
