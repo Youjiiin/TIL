@@ -1,0 +1,58 @@
+/* Reset */
+fieldset,
+legend {
+  /* 모든 속성을 선택한다. 그리고 unset */
+  all: unset;
+  /* 모든 속성이 초기화되면 위험하다. 기본 스타일이 유지되면 좋은 경우도 있으니. -> 사용자 에이전트에 여전히 관심을 가져야 한다. */
+  display: block;
+}
+
+/* all: unset을 통해 최대한 담백한 버튼 제작 -> 기본으로 제공하는 웹 접근성관련 주요 기능들의 시각적 특성이 사라짐. 하지만은 HTML 요소 고유의 기능, submit 또는 focus 기능 자체는 유지 되어있음. */
+button {
+  all: unset;
+  display: block;
+}
+
+/* input과 select등은 공공 UI다. 반복해서 쓰이는게 기본값 */
+/* 그래서 초기화부터 진행 -> 바로 뒤이어 디자인 평준화를 진행 */ 
+input, select {
+  all: unset;
+}
+
+/* 디자인 평준화, 해당 공공 UI를 평준화하자!(브라우저종류 관계 없이!) */
+select,
+input[type="text"] {
+  /* block이 되더라도 */
+  display: block;
+  /* width: auto가 컨테이닝 블록 기준으로 가득차지 않는다. */
+  width: 100%; /* 억지로 100% 때려 줘야 함! */
+
+  /* 38픽셀은 표준이 아님. 흑염소 마음 */
+  height: 38px;
+  line-height: 38px;
+
+  /* 텍스트의 안정적인 표현을 위해 좌우 padding */
+  padding: 0 10px;
+  /* width: 100%에 padding이 플러스 알파 됨 -> 고것을 막겠당. */
+  box-sizing: border-box;
+  
+  box-shadow: inset 0 0 10px red;
+}
+
+
+/* CSS Variables */
+:root {
+  --font-ko: "Noto Sans KR", sans-serif;
+}
+
+/* Typography */
+:root {
+  font-family: var(--font-ko);
+}
+
+/* Component */
+.wrapper {
+  box-shadow: inset 0 0 10px #999;
+  max-width: 600px;
+  margin: 100px auto;
+}

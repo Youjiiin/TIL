@@ -1,0 +1,60 @@
+body {
+    background-color: #ccc; 
+}
+
+.circle {
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 100px auto;
+}
+
+@keyframes fire {
+    0% {
+        transform: scale(0.5) skewX(-40deg);
+    }
+    100% {
+        transform: scale(0.5) skewX(40deg);
+    }
+}
+
+@keyframes spin {
+   0% {
+    transform: scale(0.5) rotate(0);
+   } 
+   100% {
+    transform: scale(0.5) rotate(360deg);
+   }
+}
+
+@keyframes wind {
+   0% {
+    background-position-x: 0;
+   } 
+   100% {
+    background-position-x: -1000px;
+   }
+}
+
+.circle {
+    background-image: url(images/wind.png);
+    animation-name: wind;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+}
+
+.circle img {
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: inherit;
+}
+
+.circle:hover {
+    animation-play-state: running;
+}
+
