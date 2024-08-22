@@ -10,6 +10,9 @@ h1, h2, h3 {
 li {
   list-style: none;
 }
+figure {
+  margin: unset;
+}
 
 :root {
   font-family: "Montserrat", sans-serif;
@@ -121,9 +124,12 @@ li {
   text-align: center;
   font-size: 32px;
   color: #FFFFFF;
-  line-height: 4.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 1;
+  min-height: 148px;
 }
 .list-title::before{
   content: '';
@@ -137,15 +143,15 @@ li {
 }
 .rest-title{
   background-image: url(./images/photo01.png);
-  background-size: cover;
+  background-size: 100%;
 }
 .craft-title{
   background-image: url(./images/photo02.png);
-  background-size: cover;
+  background-size: 100%;
 }
 .scrap-title{
   background-image: url(./images/photo03.png);
-  background-size: cover;
+  background-size: 100%;
 }
 
 .list-decription{
@@ -307,22 +313,58 @@ li {
   font-weight: 400;
   color: #999999;
 }
-.now-container img{
+.people_container{
+  display: flex;
+}
+
+.people_icon {
+  border-radius: 50%;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  margin-left: -14px;
+  flex-shrink: 0;
   border: 2px solid #FFFFFF;
+  position: relative;
+  margin: 0;
+  margin-left: -12px;
 }
-  @media (max-width: 700px) {
-    .now-container{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding-right: 0;
-    }
-    .now-text{
-      line-height: 2;
-    }
-  }
+.people_icon img{
+  width: 100%;
+  border-radius: 50%;
+}
+.people_icon figcaption {
+  background-color: #111111;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 0 10px;
+  border-radius: 12px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  white-space: nowrap;
+  transform:  translateX(-50%) translateY(-30%);
+  transition: all .4s;
+  opacity: 0;
+  pointer-events: none;
+}
+.people_icon:hover {
+  z-index: 10;
+}
+.people_icon:hover figcaption {
+  opacity: 1;
+  transform:  translateX(-50%) translateY(-70%);
+}
+
+.people_icon figcaption::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  margin: 0 auto -8px;
+  width: 0;
+  height: 0;
+  border-width: 4px;
+  border-color: #111111 transparent transparent transparent;
+  border-style: solid;
+}
