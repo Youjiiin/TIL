@@ -1,0 +1,265 @@
+/* Resets */
+body, p, ul {
+  margin: unset;
+  padding: unset;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: unset;
+  font-size: unset;
+  font-weight: unset;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/* Variables */
+:root {
+  /* Colors */
+  --color-white: #fff;
+}
+
+/* Typography */
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-size: 62.5% /* 브라우저 기본 폰트 사이즈 설정인 16px의 62.5% => 10px */
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+/* Layouts */
+/* 공통으로 활용하는 레이아웃 클래스. 가로 기준에서 중앙 정렬만 담당 */
+.l_wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.l_gap_row {
+  display: grid;
+  row-gap: 30px;
+
+  /* min-width: auto문제를 컨테이너 관점에서 미리 해결 */
+  grid-auto-columns: minmax( 0, 1fr );
+}
+
+/* Commons */
+.list {
+  /* 점의 width + 점 오른쪽에 margin-right 값을 여유 공간으로 만듦 */
+  padding-left: 24px;
+}
+
+.list li + li {
+  margin-top: 12px;
+}
+
+.list li::before {
+  content: " ";
+  background-color: #C89DFF;  
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 14px;
+
+  /* 점의 width + margin-right만큼 왼쪽으로 이동시키는 효과 */
+  margin-left: -24px;
+}
+
+.list.type_square li::before {
+  border-radius: 0;
+}
+
+/* Components */
+/* 시각적으로 보여지는 공통 분모 -> 템플릿 구성 */
+.section {
+  padding: 92px 0 100px;
+}
+
+/* 전체 section 관점에서 쓰이는 배경 / 전경 색상 그룹 설정 */
+.section.theme_purple {
+  background-color: #6230A2;
+  color: #C89DFF;
+}
+
+.section.theme_white {
+  background-color: #FFF5ED;
+  color: #F98173;
+}
+
+.section-header {
+  margin-bottom: 100px;
+}
+
+.section-contents {
+  box-shadow: inset 0 0 4px purple;
+}
+
+.title {
+  /* title 하위 가로 배치 */
+  display: flex;
+  align-items: center;
+}
+
+.title-headings {
+  /* 내부 타이틀 텍스트 만큼 너비가 조정되게! */
+  flex-basis: auto;
+
+  /* 최소 사이즈 규정 : 280px보다 더 작아지지는 않게 리미트 설정 */
+  min-width: 280px; /* 280px은 피그마 시안에서 옴 */
+
+  /* 피그마 상에는 44px이지만, line-height는 기본적으로 폰트 사이즈에 유동적인게 일반적임. */
+  line-height: 1.1; /* font-size:40기준에서 44px로 계산 */
+
+  /* 
+    color는 CSS Variable 이용 가능.
+    font-size는 :root의 font-size를 기준으로 설정 가능 rem
+  */
+  color: var(--color-white);
+  font-size: 4rem;
+}
+
+.title-headings strong {
+  box-shadow: inset 0 -0.6em 0 0 orangered;
+}
+
+.title-description {
+  /* 가장 많은 텍스트가 추가 될 가능성이 있음. 가장 넓은 영역으로 잡음. 커질 수 있는 크기 제한을 검 */
+  flex-grow: 1;
+  max-width: 582px; /* 피그마에서 온 사이즈 */
+
+  /* 하위 요소를 Flex Items로 만든다! */
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+/* 가상 요소는 하위요소로 생성된당! 즉 Flex Items가 될 수 있당! */
+.title-description::before {
+  content: ' ';
+  background-color: currentColor;
+  /* 초기값 1, 그러므로 오른쪽 텍스트에 의해 width: 90px이 유지되지 못하고 수축 될 수 있음이다! 고로 0 지정 => 언제나 90px이 보장되게 하였다. */
+  flex-shrink: 0;
+  width: 90px;
+  height: 1px;
+}
+
+.title-controls {
+  box-shadow: inset 0 0 20px dodgerblue;
+  /* 언제나 오른쪽으로 배치 */
+  margin-left: auto;
+}
+
+.panel {
+  background-color: var(--color-white);
+  display: flex;
+  color: #111;
+}
+
+.panel:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.panel-cover {
+  box-shadow: inset 0 0 20px red;
+  /* 고정 너비! */
+  width: 280px;
+  /* flex-basis: auto -> 280px으로 계산 */
+  /* min-width: auto -> 280px으로 계산 */
+
+  /* 💖: absolute된 요소의 컨테이닝 블록 */
+  position: relative;
+
+  /* z-index: auto가 아닌 값을 넣어 .panel-cover-bg의 새로운 스태킹 컨텍스트가 되게 함 */
+  z-index: 0;
+
+}
+
+.panel-cover-description {
+  /* 피그마 상 디자인 반영 */
+  background-color: rgb( 98 48 162 / .5 );
+  color: var(--color-white);
+  font-size: 3.2rem;
+
+  /* 주석님 의견 반영, 부모가 마침 플렉스 아이템이당. height: 100%로 부모 높이 받아오는것 가능! */
+  height: 100%;
+
+  /* 하위 텍스트 가로 세로 중앙 정렬 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-cover-bg {
+
+  /* 💖: 상위 요소중에 position: relative 기준 */
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  /* 컨테이닝 블록 기준으로 무조건 가득 채움 */
+  width: 100%;
+  height: 100%;
+
+  /* 스태킹 컨텍스트에서 가장 맨 밑에 배치 */
+  z-index: -1;
+  
+  /* 비율 유지를 위해 넣음 */
+  object-fit: cover;
+}
+
+.panel-contents {
+  /* 가변 너비! */
+
+  /* 내부 콘텐츠 너비와 관계없이 너비 조정 => auto */
+  /* 500px 임의의 설정값으로 동작 변경 => 창 크기가 작아졌을때 적절한 시기에 .panel-cover, 280px width값을 flex-shrink: 1에 의해 수축 시킬 수 있음 */
+  flex-basis: 500px;
+
+  /* flex-basis:0이므로 flex-grow비율 만으로 너비 조정 */
+  flex-grow: 1;
+
+  /* min-width: auto가 싫어서 0을 해준 것임 */
+  /* min-width: auto가 뭐길래? 내부 콘텐츠 크기로 min-width가 강제됨 */
+  min-width: 0;
+
+  /*
+    flex-basis, min-width 지정하기 싫다면
+    width: 500px; flex-grow: 1도 가능
+  */
+
+  padding: 16px 22px 22px;
+}
+
+.panel-title {
+  color: #6230A2;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+@media ( max-width: 768px ) {
+  .title {
+    display: block;
+    text-align: center;
+  }
+  .title-description {
+    display: block;
+    max-width: 320px;
+    margin: 40px auto;
+  }
+  .panel {
+    display: block;
+  }
+  .panel-cover {
+    width: unset;
+    aspect-ratio: 12 / 8;
+  }
+}
