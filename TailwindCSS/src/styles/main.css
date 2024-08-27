@@ -561,6 +561,66 @@ video {
   -webkit-line-clamp: 2;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
+.bg-pink-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 231 243 / var(--tw-bg-opacity));
+}
+
+.bg-pink-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 168 212 / var(--tw-bg-opacity));
+}
+
+.bg-\[length\] {
+  background-color: length;
+}
+
+.bg-\[url\(\.\.\/img\/ediya\.jpeg\)\] {
+  background-image: url(../img/ediya.jpeg);
+}
+
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.from-violet-500 {
+  --tw-gradient-from: #8b5cf6 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(139 92 246 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-fuchsia-500 {
+  --tw-gradient-to: #d946ef var(--tw-gradient-to-position);
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-\[length\:200px_100px\] {
+  background-size: 200px 100px;
+}
+
+.bg-\[length\:300px_100px\] {
+  background-size: 300px 100px;
+}
+
+.bg-\[length\:300px_300px\] {
+  background-size: 300px 300px;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
 .text-center {
   text-align: center;
 }
@@ -581,6 +641,11 @@ video {
 
 .text-xxs {
   font-size: 0.625rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-slate-500 {
