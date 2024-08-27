@@ -3,7 +3,14 @@ module.exports = {
   purge: ["./src/**/*.html"],
   content: ["./src/**/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        xxs: '0.625rem',
+      },
+      fontFamily: {
+        pre: ['"Pretendard Variable", Pretendard, sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
