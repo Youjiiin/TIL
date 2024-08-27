@@ -1,0 +1,65 @@
+/* Resets */
+body, p, h1 {
+    margin: unset;
+}
+h1 {
+    font-size: unset;
+}
+
+/* Variables */
+:root {
+    --main-color: #9C6035;
+    --text-color: #E8BC9C;
+    --border-color: #46260E;
+}
+
+/* Typography */
+:root {
+    font-family: Arial;
+}
+
+/* Layouts */
+body {
+    background-image: url(./images/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    height: 100vh;
+}
+
+.wrapper{
+    min-width: 0;
+    max-width: 300px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.animal{
+    display: flex;
+    flex-direction: column;
+}
+.animal-cover{
+    max-width: 100%;
+}
+.animal-contents{
+    background-image: url(./images/green.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: var(--main-color);
+
+    border-bottom: 19px solid var(--border-color);
+    border-radius: 0 0 30px 30px;
+    padding: 46px 20px;
+}
+.animal-title{
+    font-size: 36px;
+    color: #FFF;
+    margin: 14px 0 10px;
+    overflow-wrap: break-word;
+}
+.animal-descriptioin{
+    color: var(--text-color);
+}
