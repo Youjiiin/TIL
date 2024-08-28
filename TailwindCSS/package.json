@@ -3,7 +3,8 @@
     "start": "run-p watch serve",
     "dev": "tailwindcss -i ./src/styles/input.css -o ./src/styles/main.css",
     "watch": "npm run dev -- --watch",
-    "serve": "live-server --open=/src/ --port=8090 --host=localhost"
+    "serve": "live-server --open=/src/ --port=8090 --host=localhost",
+    "remove": "rm -rf ./src/styles/main.css"
   },
   "devDependencies": {
     "live-server": "^1.2.2",
