@@ -7,24 +7,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable.min.css" integrity="sha512-0qT1XfdzuH6iU1HXY6Ox53EBCSxOesNUu5mx1czNy3u/TQ5QPRmvhJN+Wwxj4OY4NQjQwFVib3UqxFdEQc7BTg==" crossorigin="anonymous" />
     <link rel="stylesheet" href="../styles/main.css">
 </head>
-<body class="font-pre flex justify-center items-center min-h-screen flex-col">
-    <h1 class="text-2xl">Flexbox/Grid</h1>
+<body class="font-pre bg-slate-900 text-white p-5">
+  <h1 class="text-4xl text-center m-5">Flexbox/Grid</h1>
+  <div class="space-y-5">
     <!-- 플렉스 박스를 활용한 레이아웃 -->
-    <div class="bg-yellow-300 w-96 flex gap-4">
+    <div class="w-96 mx-auto flex gap-4 border border-white">
+      <!-- 글자크기(3xl), 글자색상(blue-700), 플렉스 아이템이 축소되지 않도록 shrink 값을 0으로 설정 -->
       <div class="text-3xl text-blue-700 shrink-0">한페될</div>
+      <!-- 플렉스 컨테이너, 컬럼 방향 배치, 갭 16px -->
       <div class="flex flex-col gap-4">
+        <!-- 글자크기(2xl), 글자색상(orange-500), 플렉스 아이템의 순서를 마지막으로 배치 -->
         <span class="text-2xl text-orange-500 order-1">가사</span>
         <p>
             아름다운 청춘의 한 장 함께 써내려 가자 너와의 추억들로 가득 채울래 아무 걱정도 하지는 마, 나에게 다 맡겨 봐 지금 이 순간이 다시 넘겨볼 수 있는 한 페이지가 될 수 있게
         </p>
       </div>
     </div>
+
     <hr />
+
     <!-- 그리드를 활용한 레이아웃 -->
-    <div class="bg-green-300 w-96 mt-5 grid grid-cols-[80px_150px] gap-4 place-content-center grid-rows-[100px_1fr]">
-      <h2 class="text-3xl text-blue-700 bg-pink-300 row-span-2">한페될</h2>
-      <h3 class="text-2xl text-orange-500 bg-sky-500 order-1 row-start-1 row-end-2 col-start-2 col-end-3 place-self-center">가사</h3>
-      <p class="row-start-2 row-end-3 bg-orange-300 col-start-2 col-end-3 w-20 justify-self-end">아름다운 청춘의 한 장 함께 써내려 가자 너와의 추억들로 가득 채울래 아무 걱정도 하지는 마</p>
+      <div class="w-96 mx-auto border border-white grid gap-4 grid-cols-[80px_150px] grid-rows-[100px_1fr] place-content-center">
+        <!-- 글자크기(3xl), 글자색상(blue-700), 2개의 행을 병합하여 배치(span-2), 배경색상(yellow-200) -->
+        <h2 class="text-3xl text-blue-700 row-span-2 bg-yellow-200">한페될</h2>
+        <h3 class="text-xl text-orange-500 bg-gray-700 row-start-1 row-end-2 col-start-2 col-end-3 place-self-center">가사</h3>
+        <p class="row-start-2 row-end-3 col-start-2 col-end-3 bg-pink-800">아름다운 청춘의 한 장 함께 써내려 가자 너와의 추억들로 가득 채울래 아무 걱정도 하지는 마</p>
+      </div>
     </div>
   </body>
 </html>
