@@ -11,3 +11,9 @@
         shape-outside: circle(50%);
     }
 }
+
+@layer components{
+    .yujin-item{
+        @apply text-lg text-primary-200 font-semibold;
+    }
+}
