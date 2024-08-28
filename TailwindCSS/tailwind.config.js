@@ -49,5 +49,6 @@ module.exports = {
       addVariant('hocus', ['&:hover', '&:focus'])
     })
   ],
+  
 }
 
