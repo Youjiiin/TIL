@@ -562,8 +562,24 @@ h1 {
   --tw-contain-style:  ;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .fixed {
   position: fixed;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .relative {
@@ -580,6 +596,10 @@ h1 {
 
 .top-0 {
   top: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .z-10 {
@@ -630,6 +650,10 @@ h1 {
   margin: 1.25rem;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -660,6 +684,16 @@ h1 {
   height: 15rem;
 }
 
+.size-16 {
+  width: 4rem;
+  height: 4rem;
+}
+
+.size-\[18px\] {
+  width: 18px;
+  height: 18px;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -670,6 +704,35 @@ h1 {
 
 .w-96 {
   width: 24rem;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.w-\[300px\] {
+  width: 300px;
+}
+
+.w-\[200px\] {
+  width: 200px;
+}
+
+.w-\[250px\] {
+  width: 250px;
+}
+
+.w-\[240px\] {
+  width: 240px;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .shrink {
@@ -684,8 +747,24 @@ h1 {
   grid-template-columns: 80px 150px;
 }
 
+.grid-cols-\[1fr_1fr\] {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .grid-rows-\[100px_1fr\] {
   grid-template-rows: 100px 1fr;
+}
+
+.grid-rows-\[1fr_1fr\] {
+  grid-template-rows: 1fr 1fr;
+}
+
+.grid-rows-1 {
+  grid-template-rows: repeat(1, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -700,12 +779,24 @@ h1 {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -736,12 +827,28 @@ h1 {
   place-self: center;
 }
 
+.justify-self-end {
+  justify-self: end;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
 .border {
   border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .border-dotted {
@@ -816,6 +923,16 @@ h1 {
 .bg-primary-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(3 204 92 / var(--tw-bg-opacity));
+}
+
+.bg-greyscale-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(188 195 199 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\.\/\.\.\/img\/euid-logo-dark\.png\)\] {
