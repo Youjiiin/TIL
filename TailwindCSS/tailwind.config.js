@@ -9,6 +9,35 @@ module.exports = {
       fontFamily: {
         pre: ['"Pretendard Variable", Pretendard, sans-serif'],
       },
+      colors: {
+        greyscale: {
+          100: "#bcc3c7",
+          200: "#9b9a90",
+          500: "#6d7478",
+          950: "#040404",
+        },
+        primary: {
+          100: "#03cc5c",
+          200: "#11d975",
+          300: "#22be61",
+        },
+        secondary: {
+          100: "#01a9ff",
+          200: "#4284f7",
+        },
+        tertiary: {
+          100: "#e3a368",
+          200: "#e39042",
+        },
+      },
+      boxShadow: {
+        "shadow/100": "0px 4px 4px 0px rgba(68,131,63,0.15)",
+        "shadow/200": "0px 0px 2px 0px rgba(114,119,124,0.2)"
+      },
+      borderRadius: {
+        none: 0,
+        half: 50
+      },
     },
   },
   plugins: [],

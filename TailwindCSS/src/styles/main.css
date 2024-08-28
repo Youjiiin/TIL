@@ -618,8 +618,8 @@ h1 {
   grid-row-end: 3;
 }
 
-.float-left {
-  float: left;
+.float-start {
+  float: inline-start;
 }
 
 .m-10 {
@@ -726,6 +726,12 @@ h1 {
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
 
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
 .place-self-center {
   place-self: center;
 }
@@ -807,6 +813,11 @@ h1 {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
+.bg-primary-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 204 92 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\.\/\.\.\/img\/euid-logo-dark\.png\)\] {
   background-image: url(./../img/euid-logo-dark.png);
 }
@@ -843,6 +854,10 @@ h1 {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .text-center {
@@ -898,6 +913,10 @@ h1 {
 
 .underline {
   text-decoration-line: underline;
+}
+
+.shape-outside {
+  shape-outside: circle(50%);
 }
 
 .\*\:flex > * {
@@ -965,9 +984,9 @@ h1 {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.hover\:ring-green-500:hover {
+.hover\:ring-sky-500:hover {
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(34 197 94 / var(--tw-ring-opacity));
+  --tw-ring-color: rgb(14 165 233 / var(--tw-ring-opacity));
 }
 
 .focus\:outline-none:focus {

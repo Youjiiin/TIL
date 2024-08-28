@@ -6,3 +6,8 @@
         @apply text-4xl text-green-500 p-5;
     }
 }
+@layer utilities {
+    .shape-outside {
+        shape-outside: circle(50%);
+    }
+}
