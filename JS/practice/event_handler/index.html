@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler</title>
+    <style>
+        .flex{
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+
+    <form id="signup">
+        <div class="flex">
+            <span>이름 : </span>
+            <input type="text" id="name">
+        </div>
+        <div class="flex">
+            <span>전화번호 : </span>
+            <input type="text" id="phone">
+        </div>
+        <div class="flex">
+            <span>직업 : </span>
+            <select id="job">
+                <option>학생</option>
+                <option>취준생</option>
+                <option>직장인</option>
+            </select>
+        </div>
+
+        <button type="submit">회원가입</button>
+        <button type="reset">취소</button>
+    </form>
+
+    <div id="user"></div>
+    <script src="main.js"></script>
+</body>
+</html>
