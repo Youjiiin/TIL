@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler</title>
+    <style>
+        .flex{
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>로그인</h1>
+
+    <form id="signin">
+        <div class="flex">
+            <span>아이디 : </span>
+            <input type="text" id="id">
+        </div>
+        <div id="error_id"></div>
+        <div class="flex">
+            <span>비밀번호 : </span>
+            <input type="text" id="pwd">
+        </div>
+        <div id="error_pwd"></div>
+
+        <button type="login">로그인</button>
+    </form>
+    <div id="success"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
