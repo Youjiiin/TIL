@@ -15,4 +15,4 @@
 
 ## JS
 - [DeepDive Study](https://github.com/Youjiiin/TIL/tree/main/JS/DeepDive)
-- [Practice JS](https://github.com/Youjiiin/TIL/tree/main/JS/practice/array)
+- [Practice JS](https://github.com/Youjiiin/TIL/tree/main/JS/practice)
