@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <script>
+        function openAddressPage() {
+            window.open("address.html", "Address Window", "width=500,height=300");
+        }
+
+        function displayAddress(address) {
+            document.getElementById('addressDisplay').innerText = address;
+        }
+    </script>
+</head>
+<body>
+    <h1>회원가입 페이지</h1>
+    <button onclick="openAddressPage()">주소입력</button>
+    <p id="addressDisplay"></p>
+</body>
+</html>

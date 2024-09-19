@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주소 입력</title>
+    <script>
+        function submitAddress() {
+            const addressInput = document.getElementById('addressInput').value;
+            if (addressInput === "") {
+                alert('주소를 입력하세요');
+            } else {
+                if (window.opener && !window.opener.closed) {
+                    window.opener.displayAddress(addressInput);
+                }
+                window.close();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>주소</h1>
+    <input type="text" id="addressInput" placeholder="주소 입력">
+    <button onclick="submitAddress()">입력</button>
+</body>
+</html>
