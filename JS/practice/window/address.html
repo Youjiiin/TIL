@@ -10,6 +10,9 @@
             if (addressInput === "") {
                 alert('주소를 입력하세요');
             } else {
+                //부모의 함수를 호출하면서 주소 데이터 매개변수로 전달
+                // opener.printAddress(address)
+                // window.close()
                 if (window.opener && !window.opener.closed) {
                     window.opener.displayAddress(addressInput);
                 }
