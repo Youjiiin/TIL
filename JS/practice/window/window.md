@@ -26,7 +26,7 @@ window 함수
 - `open()` : 새로운 URL 문서를 띄움
     - 새로운 브라우저 창을 띄우면 기존 브라우저 창은 **'부모 창'**, 새로운 브라우저 창은 **'자식 창'**
     - `open(url)` : url만 지정해서 함수 호출
-    - `open(url, target)` : url과 target(열 위치나 방법 -> ex. `_self`: 해당 브라우저(기본값), `_blank` : 새로운 창, `_parent` : 상위 프레임, `_top` : 최상위 브라우저 창)을 지정해서 함수 호출
+    - `open(url, target)` : url과 target(열 위치나 방법 -> ex. `_self`: 해당 브라우저, `_blank` : 새로운 창, `_parent` : 상위 프레임, `_top` : 최상위 브라우저 창)을 지정해서 함수 호출
     - `open(url, target, windowFeatures)` : 다양한 정보를 설정해서 함수 호출 (ex. 새창의 크기, 위치 ...)
 - `close()` : 브라우저 창 닫기
 - `scrollBy()` : 스크롤 시키기
