@@ -1,50 +1,26 @@
 "use strict";
 
-let result = document.getElementById('result');
+// message 객체 생성
+let message = {
+    profileImg: '',
+    name: '',
+    date: '',
+    text: '',
+    emojiType: '',
+    emojiNum: 0,
 
-let words = [];
+    // 출력 메서드
+    addMessage: function(profileImg, name, date, text, emojiType, emojiNum) {
+        this.profileImg = profileImg;
+        this.name = name;
+        this.date = date;
+        this.text = text;
+        this.emojiType = emojiType;
+        this.emojiNum = emojiNum;
 
-// 단어 렌더링 함수
-const renderHandler = (arr) => {
-    let resultHTML = "<ul>";
-    arr.forEach(word => {
-        resultHTML += `<li>${word}</li>`
-    })
-    resultHTML += "</ul>";
+        console.log(this);
+    }
+};
 
-    result.innerHTML = resultHTML;
-}
-
-// 추가 함수
-const addHandler = () => {
-    let word = document.getElementById('word').value;
-    words.unshift(word);
-    console.log(words);
-
-    renderHandler(words);
-    document.getElementById('word').value = '';
-}
-
-// 대문자 변환 함수
-const mapHandler = () => {
-    let words_upper = words.map(w => w.toUpperCase());
-
-    renderHandler(words_upper);
-    words = [];
-}
-
-// 조건 필터링 함수
-const filterHandler = () => {
-    const words_filter = words.filter(w => w.length > 5);
-
-    renderHandler(words_filter);
-    words = [];
-}
-
-// 정렬 함수
-const sortHandler = () => {
-    const words_sort = words.sort();
-
-    renderHandler(words_sort);
-    words = [];
-}
+// 메서드 호출
+message.addMessage('졸린오리', '12. 장유진', '2024.09.04 오전 10:32', '디버깅 용도로 많이 사용합니다.', 'Thumbs Up', 9);
