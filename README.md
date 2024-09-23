@@ -3,7 +3,7 @@
 - [React](https://github.com/Youjiiin/TIL/tree/master/Redux/react-redux)
 - [React with Redux-toolkit](https://github.com/Youjiiin/TIL/tree/master/Redux/redux-toolkit)
 
-## [React with TS]((https://github.com/Youjiiin/TIL/tree/main/react_with_ts))
+## [React with TS](https://github.com/Youjiiin/TIL/tree/main/react_with_ts)
 
 ## [CleanCode (React)](https://github.com/Youjiiin/TIL/tree/main/CleanCode_React)
 

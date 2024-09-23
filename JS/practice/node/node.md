@@ -41,8 +41,8 @@ inputElement.value = 'Hi';
 - `getElementById` : 특정 id 속성을 가진 요소 하나를 선택할 때 사용
 ```
 let element = document.getElementById('myElement'); // 'myElement'라는 id를 가진 요소 선택
-
 ```
+
 - `querySelector` : CSS 선택자를 사용하여 문서 내의 첫 번째로 일치하는 요소 하나를 선택
 ```
 let element = document.querySelector('.myClass'); // 'myClass' 클래스를 가진 첫 번째 요소 선택
@@ -51,11 +51,17 @@ let element = document.querySelector('.myClass'); // 'myClass' 클래스를 가�
 ```
 let elements = document.querySelectorAll('.myClass'); // 'myClass' 클래스를 가진 모든 요소 선택
 ```
+
+- `getElementsByName()` : 태그에 name 속성을 설정하고, 속성값으로 노드를 획득
+```
+let idInput = document.getElementsByName('id'); //name이 'id'인 요소 선택
+```
 - `getElementsByClassName` : 특정 클래스명을 가진 모든 요소를 선택. 주어진 클래스명을 가진 요소들을 HTMLCollection으로 반환. HTMLCollection은 실시간으로 동적이므로 DOM에 변화가 생기면 자동으로 업데이트
 ```
 let elements = document.getElementsByClassName('myClass'); // 'myClass' 클래스를 가진 모든 요소 선택
 ```
-- `getElementsByTagName` : 특정 태그명을 가진 모든 요소를 선택. 주어진 태그명을 가진 요소들을 HTMLCollection으로 반환
+- `getEl
+ementsByTagName` : 특정 태그명을 가진 모든 요소를 선택. 주어진 태그명을 가진 요소들을 HTMLCollection으로 반환
 ```
 let elements = document.getElementsByTagName('div'); // 모든 <div> 요소 선택
 ```

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할일 목록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        li:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>할일 목록</h1>
+    <input type="text" id="todo-input" placeholder="할일을 입력하세요">
+    <button id="add-button">추가</button>
+    <ul id="todo-list"></ul>
+
+    <script src="main.js"></script>
+</body>
+</html>
