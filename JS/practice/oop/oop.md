@@ -77,3 +77,63 @@ let rect1 = Object.create(Shape.prototype, {
     height: {value: 10}
 });
 ```
+
+## this
+: 코드를 실행시키는 객체를 의미. 주로 함수 내에서 이용되며 함수를 호출한 객체를 지칭하기 위해 this를 사용한다. <br>
+JS에서는 함수를 호출한 객체가 동적이기에 함수를 어떻게 호출했는지에 따라 다른 객체를 지칭한다.
+
+### 전역 위치
+- 일반 모드에서는 `window`가 지정된다.
+- 엄격 모드에서는 `undefined` 상태가 된다.
+
+## 함수 내
+: 일반적으로 함수 내에서 다른 함수를 선언하고 그 함수를 호출하면, 내부 함수의 this도 전역 객체를 가리킨다. 즉, 함수 안에서 함수를 호출해도 this는 여전히 전역 객체를 참조
+```
+function outerFunction() {
+  console.log(this);  // window
+
+  function innerFunction() {
+    console.log(this);  // window
+  }
+  
+  innerFunction();  // 내부 함수 호출
+}
+
+outerFunction();
+```
+
+### 객체 메서드
+: 객체의 메서드가 호출될 때, 그 메서드 내부의 this는 해당 메서드를 호출한 객체를 참조
+```
+const obj = {
+  name: '홍길동',
+  sayHello: function() {
+    console.log(this.name);
+  }
+};
+
+obj.sayHello();  // '홍길동'
+```
+: **obj.sayHello()**를 호출할 때, this는 obj 객체를 참조
+
+### 생성자 함수
+: new 연산자에 의해 호출되는 시점의 this는 새로 만들어지는 객체를 의미
+
+### 화살표 함수
+: 함수가 실행될 때의 this는 호출하는 시점에 결정되는 **동적 바인딩** 이지만, 화살표 함수에 한해서는 **정적 바인딩**이 된다. 화살표 함수 내의 this는 호출하는 시점이 아닌 선언 시점에 결정이 된다. (이를 **렉시컬 바인딩**이라 한다. ) 화살표 함수의 상위 스코프에 있는 this가 지정된다.
+```
+const obj = {
+  name: '홍길동',
+  normalFunction: function() {
+    console.log(this.name);  // 여기서 this는 obj를 가리킴
+    
+    const arrowFunction = () => {
+      console.log(this.name);  // 여기서 this는 화살표 함수의 상위 스코프인 normalFunction의 this를 가리킴
+    };
+
+    arrowFunction();
+  }
+};
+
+obj.normalFunction();  // '홍길동' 출력
+```
