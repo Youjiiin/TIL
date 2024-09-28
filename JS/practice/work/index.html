@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <script src="main.js"></script>
+    <style>
+        label {
+            display: block;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 5px;
+            width: 200px;
+            text-align: center;
+        }
+
+        #items {
+            width: 200px;
+            height: auto;
+            background-color: #fff;
+            border: 2px solid #d1e7dd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+        #items option {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* 선택된 옵션의 스타일 */
+        #items option:checked {
+            background-color: #d1e7dd;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>참치회 특가 판매</h1>
+    <label for="items">상품목록</label>
+    <select id="items" multiple size="4">
+        <option value="3000">대뱃살 - 3000</option>
+        <option value="5000">목살 - 5000</option>
+        <option value="4000">배꼽살 - 4000</option>
+        <option value="1000">중뱃살 - 1000</option>
+    </select>
+
+    <h2>선택한 상품</h2>
+    <div id="list"></div>
+
+    <p id="price"></p>
+</body>
+</html>
