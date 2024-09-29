@@ -27,6 +27,11 @@
             width: fit-content; 
             margin: auto;
         }
+        p {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
         #items {
             display: block;
@@ -66,15 +71,13 @@
     <form id="buy">
         <label for="items">상품목록</label>
         <select id="items" multiple size="4">
-            <option value="대뱃살 - 3000">대뱃살 - 3000</option>
-            <option value="목살 - 5000">목살 - 5000</option>
-            <option value="배꼽살 - 4000">배꼽살 - 4000</option>
-            <option value="중뱃살 - 1000">중뱃살 - 1000</option>
+            <option value="대뱃살">대뱃살 - 3000</option>
+            <option value="목살">목살 - 5000</option>
+            <option value="배꼽살">배꼽살 - 4000</option>
+            <option value="중뱃살">중뱃살 - 1000</option>
         </select>
 
         <div id="list"></div>
-
-        <p id="price"></p>
 
         <button type="submit">결제하기</button>
     </form>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제하기</title>
+    <style>
+        * {
+            text-align: center;
+        }
+        input {
+            padding: 5px;
+            border: 2px solid #d1e7dd;
+            border-radius: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #d1e7dd;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        form {
+            display: flex;
+            gap: 10px;
+            width: fit-content;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>결제창</h1>
+    <div id="price"></div>
+    <form>
+        <input type="text"/>
+        <button type="submit">결제</button>
+    </form>
+    
+    <script src="main.js"></script>
+</body>
+</html>
