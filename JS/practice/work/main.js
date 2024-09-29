@@ -66,10 +66,13 @@ buy.addEventListener('submit', (e) => {
         // 자식 창 닫힘 감지 (매시간 감지)
         let checkChildClosed = setInterval(() => {
             if (newWindow.closed) {
+                // 매 시간 감지 안하도록
                 clearInterval(checkChildClosed);
                 if (cardNum) {
+                    // 결제 완료 alert
                     alert(`${cardNum}으로 ${price}원이 결제되었습니다.`);
                 } else {
+                    // 카드번호 입력을 안하고, 강제로 창을 닫았을 때
                     alert("결제가 취소되었습니다.");
                 }
             }
@@ -86,6 +89,7 @@ function displayPrice(pay) {
     `;
 }
 
+// 카드번호 가져오기
 function getCardNum(card) {
     cardNum = card;
 };
