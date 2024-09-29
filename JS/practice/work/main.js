@@ -26,6 +26,9 @@ items.addEventListener('change', () => {
     // 선택한 상품 배열로 변경
     let selected = Array.from(items.selectedOptions).map(o => o.value);
 
+    // 재선택 시, 가격이 누적되지 않도록
+    price = 0;
+
     let result = `
         <h2>선택한 상품</h2>
         <ul>
@@ -60,10 +63,15 @@ buy.addEventListener('submit', (e) => {
             newWindow.displayPrice(price);
         };
 
+        // 자식 창 닫힘 감지 (매시간 감지)
         let checkChildClosed = setInterval(() => {
             if (newWindow.closed) {
                 clearInterval(checkChildClosed);
-                alert(`${cardNum}으로 ${price}원이 결제되었습니다.`);
+                if (cardNum) {
+                    alert(`${cardNum}으로 ${price}원이 결제되었습니다.`);
+                } else {
+                    alert("결제가 취소되었습니다.");
+                }
             }
         }, 500);
     }
