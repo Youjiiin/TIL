@@ -48,6 +48,18 @@ buy.addEventListener('submit', (e) => {
     if (price === 0) {
         alert("결제할 상품을 선택해야 합니다.");
     } else {
-        window.open()
+        const newWindow = window.open("pay.html", "결제창", "width=400, height=400");
+
+        newWindow.onload = () => {
+            newWindow.displayPrice(price);
+        };
     }
 });
+
+function displayPrice(pay) {
+    let cost = document.getElementById('pay');
+    cost.innerHTML = `
+        <p>${pay}원을 결제하겠습니다.</p>
+        <p>신용카드 번호를 입력하고 결제 버튼을 눌러 주세요</p>
+    `;
+}
