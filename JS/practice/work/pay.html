@@ -31,11 +31,32 @@
 <body>
     <h1>결제창</h1>
     <div id="pay"></div>
-    <form>
-        <input type="text"/>
+    <form id="payment">
+        <input type="text" id="card"/>
         <button type="submit">결제</button>
     </form>
     
     <script src="main.js"></script>
+    <script>
+        // 신용카드 번호 입력 후 제출
+        let payment = document.getElementById('payment');
+        payment.addEventListener('submit', (e) => {
+            // 새로고침 방지
+            e.preventDefault();
+
+            // 카드 입력 dom 값 가져오기
+            let card = document.getElementById('card').value;
+
+            if (card === "") {
+                //카드 번호 미입력시
+                alert("카드 번호를 입력해 주세요.");
+            } else {
+                if (window.opener && !window.opener.closed) {
+                    window.opener.getCardNum(card);
+                }
+                window.close();
+            }
+        })
+    </script>
 </body>
 </html>

@@ -17,6 +17,8 @@ let list = document.getElementById('list');
 
 // 총 가격
 let price = 0;
+// 카드번호
+let cardNum = "";
 
 // form 요소 이벤트 처리
 let items = document.getElementById('items');
@@ -40,22 +42,34 @@ items.addEventListener('change', () => {
     list.innerHTML = result;
 });
 
+// 상품 선택 후, 구매
 let buy = document.getElementById('buy');
 buy.addEventListener('submit', (e) => {
     // 새로고침 방지
     e.preventDefault();
 
     if (price === 0) {
+        // 선택한 상품이 없을 시, alert
         alert("결제할 상품을 선택해야 합니다.");
     } else {
-        const newWindow = window.open("pay.html", "결제창", "width=400, height=400");
+        // 새창 띄우기
+        const newWindow = window.open("pay.html", "결제창", "width=500, height=400");
 
+        // 새창에 정보 전달하기
         newWindow.onload = () => {
             newWindow.displayPrice(price);
         };
+
+        let checkChildClosed = setInterval(() => {
+            if (newWindow.closed) {
+                clearInterval(checkChildClosed);
+                alert(`${cardNum}으로 ${price}원이 결제되었습니다.`);
+            }
+        }, 500);
     }
 });
 
+// 자식창에 가격 렌더링
 function displayPrice(pay) {
     let cost = document.getElementById('pay');
     cost.innerHTML = `
@@ -63,3 +77,7 @@ function displayPrice(pay) {
         <p>신용카드 번호를 입력하고 결제 버튼을 눌러 주세요</p>
     `;
 }
+
+function getCardNum(card) {
+    cardNum = card;
+};
