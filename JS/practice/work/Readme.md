@@ -27,4 +27,9 @@
 
 ## 아직 헷갈리는 부분
 - 선택한 상품 배열로 변환
+```
+function selectChange(e) {
+    let values = e.target.selectedOptions;
+}
+```
 - 자식 창 닫히는 것 감지 -> 구글링을 통해서 setInterval를 통한 매시간 감지 하는 방법으로 했으나 다른 방법이 있는가?
