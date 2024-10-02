@@ -87,3 +87,5 @@ user.sayGoodbye = function() {  // 외부에서 메서드 추가
 };
 user.sayGoodbye();  // "Goodbye!"
 ```
+
+### private 멤버
