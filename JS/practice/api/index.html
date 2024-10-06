@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Search</title>
+    <style>
+        h1 {
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        #searchInput{
+            width: 400px;
+            height: 30px;
+            border-radius: 20px;
+            padding: 5px 10px;
+            border: 2px solid #FFD39D;
+        }
+        #searchButton {
+            width: 100px;
+            height: 44px;
+            border-radius: 20px;
+            padding: 5px 10px;
+            border: 2px solid #FFD39D;
+            background-color: #FFD39D;
+        }
+        .news-item {
+            border: 2px solid #FFD39D;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .news-item h3 {
+            margin: 0;
+        }
+        .news-item a {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>📰 News 📻</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="뉴스 키워드를 입력해 주세요!">
+        <button id="searchButton">Search</button>
+    </div>
+    <div id="newsResults"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
