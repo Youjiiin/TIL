@@ -1,4 +1,4 @@
-const apiKey = '';
+const apiKey = ''; //key 값은 보안상 기재하지 않았습니다.
 const apiUrl = 'https://newsapi.org/v2/everything?q=';
 
 document.getElementById('searchButton').addEventListener('click', function() {
