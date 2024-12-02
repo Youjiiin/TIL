@@ -1,4 +1,4 @@
-# (useRef) [https://ko.react.dev/reference/react/useRef]
+# [useRef] (https://ko.react.dev/reference/react/useRef)
 : 컴포넌트의 상태와는 독립적으로 변경 가능한 값을 저장하거나 DOM 요소를 직접 참조하는 데 사용. 주로 리렌더링을 발생시키지 않고 값을 저장하거나 DOM 조작이 필요한 상황에서 활용.
 
 ## useRef의 특징
