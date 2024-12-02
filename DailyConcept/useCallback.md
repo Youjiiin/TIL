@@ -1,4 +1,4 @@
-# (useCallback) [https://ko.react.dev/reference/react/useCallback]
+# [useCallback] (https://ko.react.dev/reference/react/useCallback)
 : **함수를 메모이제이션(캐싱)**하여 컴포넌트가 리렌더링될 때마다 함수가 새로 생성되는 것을 방지합니다. 이를 통해 불필요한 자식 컴포넌트의 리렌더링을 줄이고, 성능 최적화를 도모합니다.
 
 ## useCallback의 문법
