@@ -1,4 +1,4 @@
-# [useMemo] (https://ko.react.dev/reference/react/useMemo)
+# [useMemo](https://ko.react.dev/reference/react/useMemo)
 : 성능 최적화를 위해 사용됩니다. 비용이 큰 계산 작업이나 복잡한 연산을 컴포넌트가 리렌더링될 때마다 매번 실행하지 않고, **값을 메모이제이션(캐싱)**하여 필요할 때만 재계산하도록 합니다.
 
 ## useMemo의 문법
